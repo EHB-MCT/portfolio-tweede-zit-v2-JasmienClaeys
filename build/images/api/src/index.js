@@ -1,10 +1,15 @@
 const express = require("express");
-
 const app = express();
 
-app.get("/", (request, response) => {
+/**
+ * GET endpoint, provide hello world
+ * 
+ * @param 
+ * @returns 
+ */
 
-    response.send({ message: "helloww"})
+app.get("/", (req, res) => {
+    res.send({ message: "yellow" })
 })
 
 app.listen(3000, (err) => {

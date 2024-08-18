@@ -1,22 +1,24 @@
-const express = require("express");
-const app = express();
+const app = require("./app");
+require('dotenv').config();
+
 
 /**
- * GET endpoint, provide hello world
+ * Start express server and liston on specified port
  * 
- * @param 
- * @returns 
+ * @function startServer
+ * 
+ * @param {number} port - The port number on which the server should listen.
+ * @param {function} callback - A callback function to be executed when the server starts.
+ * @returns {void}
  */
 
-app.get("/", (req, res) => {
-    res.send({ message: "yellow" })
-})
 
-app.listen(3000, (err) => {
-    if(!err) {
-        console.log("running on port " + 3000);
-    }
-    else{
-        console.error(err)
-    }
-})
+function startServer(port, callback) {
+    app.listen(port, callback);
+};
+
+const PORT = process.env.PORT || 3001;
+
+startServer(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

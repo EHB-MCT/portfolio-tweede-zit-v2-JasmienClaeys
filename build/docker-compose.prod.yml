@@ -4,9 +4,7 @@ services:
   api:
     build: ./images/api
     ports:
-      - "3001:3000"
-    volumes:
-      - ./images/api/src:/usr/app/src
+      - "80:3001"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

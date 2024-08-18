@@ -3,10 +3,6 @@ version: "3.8"
 services:
   api:
     build: ./images/api
-    ports:
-      - "3001:3000"
-    volumes:
-      - ./images/api/src:/usr/app/src
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -16,8 +12,6 @@ services:
 
   store:
     image: postgres:latest
-    ports:
-      - "5432:5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

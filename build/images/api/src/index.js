@@ -1,6 +1,7 @@
-const app = require("./app");
+const app = require('./app');
 require('dotenv').config();
 
+const PORT = process.env.PORT || 3001;
 
 /**
  * Start express server and liston on specified port
@@ -12,13 +13,14 @@ require('dotenv').config();
  * @returns {void}
  */
 
-
-function startServer(port, callback) {
-    app.listen(port, callback);
-};
-
-const PORT = process.env.PORT || 3001;
-
-startServer(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+// function startServer(port, callback) {
+//     app.listen(port, callback);
+// };
+
+// startServer(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });

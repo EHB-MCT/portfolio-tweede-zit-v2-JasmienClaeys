@@ -1,8 +1,9 @@
 /**
+ * Run the migrations.
+ *
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-
 exports.up = function(knex) {
     return knex.schema
         .createTable('students', function(table) {
@@ -15,12 +16,19 @@ exports.up = function(knex) {
         .createTable('comments', function (table) {
             table.increments('id').primary();
             table.string('text', 255).notNullable();
-            table.integer('user_id').unsigned().references('users.id');
+            table.integer('user_id').unsigned().references('students.id'); 
             table.timestamps();
         });
-  };
-  
-  exports.down = function(knex) {
-    return knex.schema.dropTableIfExists('students');
-  };
-  
+};
+
+/**
+ * Rollback the migrations.
+ *
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+exports.down = function(knex) {
+    return knex.schema
+        .dropTableIfExists('comments')
+        .dropTableIfExists('students');
+};

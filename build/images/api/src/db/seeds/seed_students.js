@@ -1,5 +1,11 @@
+/**
+ * Seed the students table.
+ *
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
 exports.seed = function(knex) {
-  // Deletes all existing entries
+  // Deletes ALL existing entries
   return knex('students').del()
     .then(function () {
       // Inserts seed entries

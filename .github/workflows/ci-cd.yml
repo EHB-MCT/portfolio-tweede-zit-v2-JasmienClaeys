@@ -22,7 +22,7 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@v5
         with:
-          context: ./images/api
+          context: ./images/api/src
           file: ./images/api/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/jasmienclaeys/portfolio-dev5:latest

@@ -23,7 +23,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ../../build/images/api
-          file: ./images/api/Dockerfile
+          file: ../../build/images/api/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/jasmienclaeys/portfolio-dev5:latest
       - name: Image digest
